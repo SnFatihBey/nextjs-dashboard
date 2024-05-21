@@ -1,7 +1,9 @@
-// This file contains type definitions for your data.
-// It describes the shape of the data, and what data type each property should accept.
-// For simplicity of teaching, we're manually defining these types.
-// However, these types are generated automatically if you're using an ORM such as Prisma.
+// This file contains type definitions for your data. <--> Bu dosya verileriniz için tür tanımları içerir.
+// It describes the shape of the data, and what data type each property should accept. <--> Verilerin şeklini ve her bir özelliğin hangi veri türünü kabul etmesi gerektiğini açıklar.
+
+// For simplicity of teaching, we're manually defining these types. <--> Öğretimin basitliği için bu türleri manuel olarak tanımlıyoruz.
+// However, these types are generated automatically if you're using an ORM such as Prisma. <--> Ancak, Prisma gibi bir ORM kullanıyorsanız bu türler otomatik olarak oluşturulur.
+
 export type User = {
   id: string;
   name: string;
@@ -21,8 +23,9 @@ export type Invoice = {
   customer_id: string;
   amount: number;
   date: string;
-  // In TypeScript, this is called a string union type.
-  // It means that the "status" property can only be one of the two strings: 'pending' or 'paid'.
+  // In TypeScript, this is called a string union type. <--> TypeScript'te buna dize birleştirme türü denir.
+  // It means that the "status" property can only be one of the two strings: 'pending' or 'paid'. <--> Bu, "durum" özelliğinin yalnızca iki dizeden biri olabileceği anlamına gelir: 'pending' or 'paid' <--> 'beklemede' veya 'ödendi'.
+
   status: 'pending' | 'paid';
 };
 
@@ -39,7 +42,7 @@ export type LatestInvoice = {
   amount: string;
 };
 
-// The database returns a number for amount, but we later format it to a string with the formatCurrency function
+// The database returns a number for amount, but we later format it to a string with the formatCurrency function <--> Veritabanı tutar için bir sayı döndürür, ancak daha sonra bunu formatCurrency işleviyle bir dizeye biçimlendiririz
 export type LatestInvoiceRaw = Omit<LatestInvoice, 'amount'> & {
   amount: number;
 };
